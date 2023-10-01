@@ -13,8 +13,8 @@ export default class d4eredoActorSheet extends SvelteApplication {
    {
       return foundry.utils.mergeObject(super.defaultOptions, {
          title: '4eRedo.actor.title',  // Automatically localized from `lang/en.json`.
-         width: 300,
-         height: 600,
+         width: 850,
+         height: 900,
 
          svelte: {
             class: ActorSheetTemplate,

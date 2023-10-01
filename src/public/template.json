@@ -2,16 +2,174 @@
   "Actor": {
     "types": ["character"],
     "character": {
-
+      "race": "",
+      "class": "",
+      "paragon": "",
+      "destiny": "",
+      "level": 1,
+      "xp": 0,
+      "hp": {
+        "value": 0,
+        "max": 0,
+        "temp": 0
+      },
+      "defenses": {
+        "ac_modifiers": [],
+        "fort_modifiers": [],
+        "ref_modifiers": [],
+        "will_modifiers": []
+      },
+      "healing_surges": {
+        "value": 0,
+        "max": 0,
+        "second_wind": false,
+        "healing_modifiers": []
+      },
+      "action_points": {
+        "value": 1,
+        "used_this_encounter": false
+      },
+      "save_modifiers": [],
+      "death_saves": {
+        "succeeded": 0,
+        "failed": 0,
+        "modifiers": []
+      },
+      "passive": {
+        "perception_modifiers": [],
+        "insight_modifiers": []
+      },
+      "speed": {
+        "base": 6,
+        "special": ""
+      },
+      "initiative_modifiers": [],
+      "ability_scores": {
+        "strength": {
+          "base": 10,
+          "modifier": 0
+        },
+        "constitution": {
+          "base": 10,
+          "modifier": 0
+        },
+        "dexterity": {
+          "base": 10,
+          "modifier": 0
+        },
+        "intelligence": {
+          "base": 10,
+          "modifier": 0
+        },
+        "wisdon": {
+          "base": 10,
+          "modifier": 0
+        },
+        "charisma": {
+          "base": 10,
+          "modifier": 0
+        }
+      },
+      "skills": {
+        "acrobatics": {
+          "trained": false,
+          "modifiers": []
+        },
+        "arcana": {
+          "trained": false,
+          "modifiers": []
+        },
+        "athletics": {
+          "trained": false,
+          "modifiers": []
+        },
+        "bluff": {
+          "trained": false,
+          "modifiers": []
+        },
+        "diplomacy": {
+          "trained": false,
+          "modifiers": []
+        },
+        "dungeoneering": {
+          "trained": false,
+          "modifiers": []
+        },
+        "endurance": {
+          "trained": false,
+          "modifiers": []
+        },
+        "healing": {
+          "trained": false,
+          "modifiers": []
+        },
+        "history": {
+          "trained": false,
+          "modifiers": []
+        },
+        "insight": {
+          "trained": false,
+          "modifiers": []
+        },
+        "intimidation": {
+          "trained": false,
+          "modifiers": []
+        },
+        "nature": {
+          "trained": false,
+          "modifiers": []
+        },
+        "perception": {
+          "trained": false,
+          "modifiers": []
+        },
+        "religion": {
+          "trained": false,
+          "modifiers": []
+        },
+        "stealth": {
+          "trained": false,
+          "modifiers": []
+        },
+        "streetwise": {
+          "trained": false,
+          "modifiers": []
+        },
+        "thievery": {
+          "trained": false,
+          "modifiers": []
+        }
+      }
+    },
+    "biography": "",
+    "details": {
+      "gender": "",
+      "age": "",
+      "alignment": "",
+      "height": "",
+      "weight": "",
+      "size": 3,
+      "languages": [],
+      "proficiencies": [],
+      "senses": []
     }
   },
 
   "Item": {
-    "types": ["item", "skill"],
+    "types": ["item", "power", "resource", "feat", "effect"],
     "item": {
 
     },
-    "skill": {
+    "power": {
+
+    },
+    "resource": {
+
+    },
+    "feat": {
+
+    },
+    "effect": {
 
     }
   }
