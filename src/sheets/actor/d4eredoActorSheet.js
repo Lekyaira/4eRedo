@@ -1,8 +1,15 @@
-import { SvelteApplication } from '#runtime/svelte/application';
-// import { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store/fvtt';
+import d4eredoBaseSheet from '../../core/d4eredoBaseSheet';
 import ActorSheetTemplate from './ActorSheetTemplate.svelte';
 
-export default class d4eredoActorSheet extends SvelteApplication {
+export default class d4eredoActorSheet extends d4eredoBaseSheet {
+   get actor() {
+      return this.object;
+   }
+
+   constructor(object = {}, options = {}) {
+      super(object, options, ActorSheetTemplate);
+   }
+
    /**
     * Default Application options
     *
@@ -12,14 +19,9 @@ export default class d4eredoActorSheet extends SvelteApplication {
    static get defaultOptions()
    {
       return foundry.utils.mergeObject(super.defaultOptions, {
-         title: '4eRedo.actor.title',  // Automatically localized from `lang/en.json`.
+         baseApplication: 'ActorSheet',
          width: 850,
          height: 900,
-
-         svelte: {
-            class: ActorSheetTemplate,
-            target: document.body
-         }
       });
    }
 }
