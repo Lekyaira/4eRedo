@@ -1,0 +1,43 @@
+{
+  "id": "4eRedo",
+  "name": "4eRedo",
+  "title": "4eRedo",
+  "description": "D&D 4e System, rebuilt from the ground up.",
+  "author": "Ryan W. Anderson",
+  "authors": [
+    {
+      "name": "Ryan W. Anderson",
+      "url": "https://github/lekyaira/"
+    }
+  ],
+  "url": "https://github.com/Lekyaira/4eRedo",
+  "readme": "https://github.com/Lekyaira/4eRedo/README.md",
+  "bugs": "https://github.com/Lekyaira/4eRedo/issues",
+  "changelog": "https://github.com/Lekyaira/4eRedo/CHANGELOG.md",
+  "version": "0.0.0",
+  "minimumCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "10",
+  "compatibility": {
+    "minimum": "0.8.6",
+    "verified": "10"
+  },
+  "esmodules": [
+    "index.js"
+  ],
+  "styles": [
+    "style.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 1,
+  "gridUnits": "sq",
+  "socket": false,
+  "protected": false,
+  "coreTranslation": false,
+  "library": false
+}
