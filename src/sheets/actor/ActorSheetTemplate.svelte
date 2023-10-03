@@ -1,4 +1,5 @@
 <script>
+   import AbilityScores from "./sections/AbilityScores.svelte";
    // Sheet passed in from the base sheet.
    export let sheet;
 </script>
@@ -7,13 +8,12 @@
 <svelte:options accessors={true}/>
 
 <main>
-   <h1>Basic Character Sheet</h1>
-   <p>{sheet.actor.name}</p>
+   <AbilityScores sheet={sheet}/>
 </main>
 
 <style lang="scss">
-   h1 {
-      text-align: center;
+   #info div {
       display: flex;
+      flex-direction: row;
    }
 </style>
