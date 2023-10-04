@@ -1,5 +1,6 @@
 <script>
    import { onMount } from 'svelte';
+   import HP from './HP.svelte';
 
    export let sheet;
    let actor = sheet.actor;
@@ -81,6 +82,9 @@
          <span>EXP</span>
          <input type="text" id="experience" placeholder="Exp"/>
       </div>
+      <div class="block_line">
+         <HP data={data}/>
+      </div>
    </div>
 </section>
 
@@ -148,5 +152,10 @@
    #info span {
       flex: 0 0 auto;
       font-size: 1.2rem;
+   }
+
+   .block_line {
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
    }
 </style>
