@@ -2,7 +2,8 @@
    import AbilityScore from "./AbilityScore.svelte";
    export let sheet;
 
-   let level = 1;
+   // TEST CODE
+   let level = 2;
    let str = 18;
    let strMod = Math.floor((str-10)/2);
    let strModPlusHalflevel = Math.floor(strMod+(level/2));

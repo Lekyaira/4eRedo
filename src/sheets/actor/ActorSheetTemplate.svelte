@@ -1,4 +1,5 @@
 <script>
+   import Info from "./sections/Info.svelte";
    import AbilityScores from "./sections/AbilityScores.svelte";
    // Sheet passed in from the base sheet.
    export let sheet;
@@ -8,12 +9,13 @@
 <svelte:options accessors={true}/>
 
 <main>
-   <AbilityScores sheet={sheet}/>
+   <section id="header">
+      <Info sheet={sheet}/>
+   </section>
+   <section id="body">
+      <AbilityScores sheet={sheet}/>
+   </section>
 </main>
 
 <style lang="scss">
-   #info div {
-      display: flex;
-      flex-direction: row;
-   }
 </style>

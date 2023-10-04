@@ -22,18 +22,27 @@
 
    .score_box {
       display: flex;
-      width: 2.2rem;
+      flex: 0 0 2.2rem;
       text-align: center;
       align-items: center;
       justify-content: center;
       font-size: 1.2rem;
+   }
+
+   input {
       border: none;
       border-radius: 0;
-      background-color: #00000000;
+      background-color: #0000;
+   }
+
+   input:hover,
+   input:focus {
+      box-shadow: none;
+      border-bottom: 1px solid black;
    }
 
    #score_name {
+      flex: 0 0 5rem;
       margin-left: 0.2rem;
-      width: 5rem;
    }
 </style>
