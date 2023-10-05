@@ -1,4 +1,6 @@
 <script>
+   import { print_mod } from "/core/html";
+
    export let score;
    export let scoreName;
    export let scoreModifier;
@@ -8,8 +10,8 @@
 <section>
    <input type="text" id="score_value" class="score_box" value={score}/>
    <div id="score_name" >{scoreName}</div>
-   <div id="score_modifier" class="score_box">{scoreModifier >= 0 ? '+' : ''}{scoreModifier}</div>
-   <div id="score_mod_plus_halflevel" class="score_box">{scoreModPlusHalflevel >= 0 ? '+' : ''}{scoreModPlusHalflevel}</div>
+   <div id="score_modifier" class="score_box">{print_mod(scoreModifier)}</div>
+   <div id="score_mod_plus_halflevel" class="score_box">{print_mod(scoreModPlusHalflevel)}</div>
 </section>
 
 <style lang="scss">

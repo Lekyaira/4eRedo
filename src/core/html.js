@@ -19,3 +19,7 @@ export function resize_to_value(canvas, element) {
    }
    element.style.flexBasis = width;
 }
+
+export function print_mod(value) {
+   return (value >= 0 ? '+' : '') + value;
+}
