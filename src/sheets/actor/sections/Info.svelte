@@ -1,6 +1,7 @@
 <script>
    import { onMount } from 'svelte';
    import HP from './HP.svelte';
+   import { resize_to_value } from '/core/html';
 
    export let sheet;
    let actor = sheet.actor;
@@ -17,40 +18,18 @@
       destiny: {},
    }
 
-   function css(element, property) {
-      return window.getComputedStyle(element, null).getPropertyValue(property);
-   }
-
    function resize(event) {
-      resize_to_value(event.srcElement);
-   }
-
-   function resize_to_value(element) {
-      let context = canvas.getContext("2d");
-      context.font = css(element, 'font');
-      let width;
-      if(element.value == "") {
-         if(element.placeholder == "") {
-            width = "10px";
-         }
-         else {
-            width = (context.measureText(element.placeholder).width + 6) + "px";
-         }
-      }
-      else {
-         width = (context.measureText(element.value).width + 6) + "px";
-      }
-      element.style.flexBasis = width;
+      resize_to_value(canvas, event.srcElement);
    }
 
    onMount(() => {
-      resize_to_value(inputs.name);
-      resize_to_value(inputs.level);
-      resize_to_value(inputs.gender);
-      resize_to_value(inputs.race);
-      resize_to_value(inputs.class);
-      resize_to_value(inputs.paragon);
-      resize_to_value(inputs.destiny);
+      resize_to_value(canvas, inputs.name);
+      resize_to_value(canvas, inputs.level);
+      resize_to_value(canvas, inputs.gender);
+      resize_to_value(canvas, inputs.race);
+      resize_to_value(canvas, inputs.class);
+      resize_to_value(canvas, inputs.paragon);
+      resize_to_value(canvas, inputs.destiny);
    });
 
    // TEST CODE
