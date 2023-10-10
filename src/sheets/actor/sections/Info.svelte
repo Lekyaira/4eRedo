@@ -85,8 +85,8 @@
    }
 
    #portrait {
-      width: 10rem;
-      height: 10rem;
+      width: 11rem;
+      height: 11rem;
       border: 1px solid black;
       margin: 0 0.5rem 0.5rem 0;
    }
