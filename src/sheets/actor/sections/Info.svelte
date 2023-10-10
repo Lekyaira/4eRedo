@@ -1,6 +1,7 @@
 <script>
    import { onMount } from 'svelte';
    import HP from './HP.svelte';
+   import Defenses from './Defenses.svelte';
    import { resize_to_value } from '/core/html';
 
    export let system;
@@ -70,6 +71,8 @@
       </div>
       <div class="block_line">
          <HP system={system} update={update}/>
+         <div class="divider"/>
+         <Defenses system={system} update={update}/>
       </div>
    </div>
 </section>
@@ -142,5 +145,12 @@
    .block_line {
       border-top: 2px solid black;
       border-bottom: 2px solid black;
+      display: flex;
+      flex-direction: row;
+   }
+
+   .block_line .divider {
+      margin: 0 0.2rem 0 0.2rem;
+      border-right: 1px solid black;
    }
 </style>
