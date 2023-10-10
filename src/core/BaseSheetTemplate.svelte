@@ -17,6 +17,22 @@
       docData[attributeName] = attributeValue;
       sheet.actor.update(docData);
    };
+
+   // Update sheet image
+   let editImage = () => {
+      // TODO: Replace with our own Tokenizer-like functionality.
+      // Instantiate a new file picker.
+      const picker = new FilePicker();
+      // When the file is picked...
+      picker.callback = async (imgPath) => {
+         // Update the sheet's image
+         sheet.actor.img = imgPath;
+         // Update the returned data object with the newly picked image
+         sheet.actor.update({ _id: sheet.actor._id, img: imgPath });
+      };
+      // Render the picker
+      picker.render(true);
+   }
 </script>
 
 <!-- This is necessary for Svelte to generate accessors TRL can access for `elementRoot` -->
@@ -34,5 +50,6 @@
    <svelte:component this={component} 
       bind:sheet={sheet} 
       update={update}
+      editImage={editImage}
    />
 </ApplicationShell>

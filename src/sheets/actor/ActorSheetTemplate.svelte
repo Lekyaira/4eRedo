@@ -1,5 +1,4 @@
 <script>
-   import { writable } from 'svelte/store';
    import Info from "./sections/Info.svelte";
    import AbilityScores from "./sections/AbilityScores.svelte";
    import Skills from "./sections/Skills.svelte";
@@ -7,16 +6,17 @@
    export let sheet;
    let system = sheet.actor.system;
    export let update;
+   export let editImage;
 
-   //const count = writable("Initial Val");
-   let testVal = "Initial Val";
-
-   /*function increment(event) {
-      console.log($testVal);
-      //count.update(() => event.srcElement.value);
-      //update($count);
-   }*/
-
+   // Edit actor portrait
+   function editPortrait() {
+      // Import Tokenize function
+      const tokenize = game.modules.get('vtta-tokenizer')?.api?.tokenizeActor;
+      // If we have Tokenizer installed, use it
+      if(tokenize) tokenize(sheet.actor); // TODO: Update sheet img on tokenizer submit
+      // Otherwise, call our own file dialog
+      else editImage();
+   }
 </script>
 
 <!-- This is necessary for Svelte to generate accessors TRL can access for `elementRoot` -->
@@ -24,7 +24,12 @@
 
 <main>
    <section id="header">
-      <Info system={system} update={update} name={sheet.actor.name} img={sheet.actor.img}/>
+      <Info 
+         system={system} 
+         update={update} 
+         name={sheet.actor.name} 
+         img={sheet.actor.img}
+         editPortrait={editPortrait}/>
    </section>
    <section id="body">
       <section id="left_panel">

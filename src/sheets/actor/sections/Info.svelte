@@ -7,6 +7,7 @@
    export let update;
    export let name;
    export let img;
+   export let editPortrait;
    let canvas = document.createElement("canvas");
 
    $: inputs = {
@@ -35,7 +36,8 @@
 </script>
 
 <section>
-   <img src="{img}" id="portrait" alt="{name}'s portrait"/>
+   <img src="{img}" id="portrait" alt="{name}'s portrait" 
+      on:click={editPortrait}/>
    <div id="info">
       <div class="info_line">
          <input type="text" id="name" placeholder="Name" 
