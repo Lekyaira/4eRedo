@@ -2,6 +2,7 @@
    import { onMount } from 'svelte';
    import HP from './HP.svelte';
    import Defenses from './Defenses.svelte';
+   import ActionPoints from './ActionPoints.svelte';
    import { resize_to_value } from '/core/html';
 
    export let system;
@@ -73,6 +74,8 @@
          <HP system={system} update={update}/>
          <div class="divider"/>
          <Defenses system={system} update={update}/>
+         <div class="divider"/>
+         <ActionPoints system={system} update={update}/>
       </div>
    </div>
 </section>
