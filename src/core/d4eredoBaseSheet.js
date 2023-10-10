@@ -47,8 +47,6 @@ export default class d4eredoBaseSheet extends SvelteApplication {
                   sheet: this,
                   // The inner sheet template to render
                   component: this.#component,
-                  // Update function
-                  update: this.update,
                };
             },
          },

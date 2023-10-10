@@ -5,10 +5,18 @@
    export let sheet;
    // Inner sheet template component
    export let component = false;
-   // Update function
-   export let update;
 
    export let elementRoot;
+
+   // Update Foundry database
+   let update = (event) => {
+      let attributeValue = event.srcElement.value;
+      let attributeName = event.srcElement.name;
+      let docData = { _id: sheet.actor._id };
+      if(event.srcElement.type === 'checkbox') attributeValue = event.srcElement.checked;
+      docData[attributeName] = attributeValue;
+      sheet.actor.update(docData);
+   };
 </script>
 
 <!-- This is necessary for Svelte to generate accessors TRL can access for `elementRoot` -->
@@ -25,6 +33,6 @@
       bind:sheet={sheet} />-->
    <svelte:component this={component} 
       bind:sheet={sheet} 
-      bind:update={update}
+      update={update}
    />
 </ApplicationShell>
