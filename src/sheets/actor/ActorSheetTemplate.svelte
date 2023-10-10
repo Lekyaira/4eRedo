@@ -24,7 +24,7 @@
 
 <main>
    <section id="header">
-      <Info sheet={sheet} update={update}/>
+      <Info system={system} update={update} name={sheet.actor.name} img={sheet.actor.img}/>
    </section>
    <section id="body">
       <section id="left_panel">

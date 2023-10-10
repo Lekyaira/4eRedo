@@ -3,10 +3,10 @@
    import HP from './HP.svelte';
    import { resize_to_value } from '/core/html';
 
-   export let sheet;
+   export let system;
    export let update;
-   let actor = sheet.actor;
-   let system = sheet.actor.system;
+   export let name;
+   export let img;
    let canvas = document.createElement("canvas");
 
    $: inputs = {
@@ -32,18 +32,14 @@
       resize_to_value(canvas, inputs.paragon);
       resize_to_value(canvas, inputs.destiny);
    });
-
-   // TEST CODE
-   console.log(sheet);
-
 </script>
 
 <section>
-   <img src="{actor.img}" id="portrait" alt="{sheet.actor.name}'s portrait"/>
+   <img src="{img}" id="portrait" alt="{name}'s portrait"/>
    <div id="info">
       <div class="info_line">
          <input type="text" id="name" placeholder="Name" 
-            name="name" value={actor.name} on:change={update}
+            name="name" value={name} on:change={update}
             bind:this={inputs.name} on:input={resize}/>
          <span>, Level</span>
          <input type="text" id="level" 
@@ -67,10 +63,11 @@
       </div>
       <div class="info_line">
          <span>EXP</span>
-         <input type="text" id="experience" placeholder="Exp"/>
+         <input type="text" id="experience" placeholder="Exp"
+            name="system.xp" value={system.xp} on:change={update}/>
       </div>
       <div class="block_line">
-         <HP system={system}/>
+         <HP system={system} update={update}/>
       </div>
    </div>
 </section>
