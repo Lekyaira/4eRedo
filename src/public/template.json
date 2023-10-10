@@ -3,6 +3,7 @@
     "types": ["character"],
     "character": {
       "race": "",
+      "gender": "",
       "class": "",
       "paragon": "",
       "destiny": "",

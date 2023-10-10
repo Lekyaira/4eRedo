@@ -53,13 +53,16 @@
             name="system.race" value={system.race} on:change={update}
             bind:this={inputs.race} on:input={resize}/>
          <input type="text" id="gender" placeholder="Gender" 
+            name="system.gender" value={system.gender} on:change={update}
             bind:this={inputs.gender} on:input={resize}/>
          <input type="text" id="class" placeholder="Class" 
             name="system.class" value={system.class} on:change={update}
             bind:this={inputs.class} on:input={resize}/>
          <input type="text" id="paragon" class="optional" placeholder="Paragon Path" 
+            name="system.paragon" value={system.paragon} on:change={update}
             bind:this={inputs.paragon} on:input={resize}/>
          <input type="text" id="destiny" class="optional" placeholder="Epic Destiny" 
+            name="system.destiny" value={system.destiny} on:change={update}
             bind:this={inputs.destiny} on:input={resize}/>
       </div>
       <div class="info_line">
