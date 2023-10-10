@@ -6,7 +6,7 @@
    // Sheet passed in from the base sheet.
    export let sheet;
    let system = sheet.actor.system;
-   //export let update;
+   export let update;
 
    //const count = writable("Initial Val");
    let testVal = "Initial Val";
@@ -17,17 +17,6 @@
       //update($count);
    }*/
 
-   let update = (event) => {
-      let attributeValue = event.srcElement.value;
-      let attributeName = event.srcElement.name;
-      let docData = { _id: sheet.actor._id };
-      if(event.srcElement.type === 'checkbox') attributeValue = event.srcElement.checked;
-      docData[attributeName] = attributeValue;
-      console.log("4eRemake | DEBUG:");
-      console.log(event);
-      console.log(docData);
-      sheet.actor.update(docData);
-   };
 </script>
 
 <!-- This is necessary for Svelte to generate accessors TRL can access for `elementRoot` -->
