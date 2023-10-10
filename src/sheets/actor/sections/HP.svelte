@@ -1,5 +1,6 @@
 <script>
    export let system;
+   export let update;
 
    console.log(system);
 </script>
@@ -7,34 +8,53 @@
 <section>
    <h2>Hit Points</h2>
    <div id="hp">
-      <input type="text" id="hp_value" value="{system.hp.value}"/>
+      <input type="text" id="hp_value" 
+         name="system.hp.value" 
+         value={system.hp.value} 
+         on:change={update}/>
       <div id="hp_info">
          <div class="row">
             <div id="hp_info_max" class="item">
-               <input type="text" value="{system.hp.max}"/>
+               <input type="text" 
+                  name="system.hp.max" 
+                  value={system.hp.max} 
+                  on:change={update}/>
                <span>max</span>
             </div>
             <div id="hp_info_temp" class="item">
-               <input type="text" value="{system.hp.temp}"/>
+               <input type="text" 
+                  name="system.hp.temp" 
+                  value={system.hp.temp} 
+                  on:change={update}/>
                <span>temp</span>
             </div>
             <div id="second_wind" class="item">
-               <input type="checkbox" value="{system.healing_surges.second_wind}"/>
+               <input type="checkbox" 
+                  name="system.healing_surges.second_wind" 
+                  value={system.healing_surges.second_wind}
+                  on:change={update}/>
                <span>SW</span>
             </div>
          </div>
          <span class="label">Healing Surges</span>
          <div class="row">
             <div id="hp_info_surges_value" class="item">
+               <!--TODO: Update template for healing surge amount-->
                <input type="text" value="10"/>
                <span>heals for</span>
             </div>
             <div id="hp_info_surges_surges" class="item">
-               <input type="text" value="{system.healing_surges.value}"/>
+               <input type="text" 
+                  name="system.healing_surges.value"
+                  value={system.healing_surges.value}
+                  on:change={update}/>
                <span>surges</span>
             </div>
             <div id="hp_info_surges_max" class="item">
-               <input type="text" value="{system.healing_surges.max}"/>
+               <input type="text" 
+                  name="system.healing_surges.max"
+                  value={system.healing_surges.max}
+                  on:change={update}/>
                <span>per day</span>
             </div>
          </div>

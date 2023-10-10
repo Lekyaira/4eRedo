@@ -1,6 +1,6 @@
 <script>
    import AbilityScore from "./AbilityScore.svelte";
-   export let sheet;
+   export let system;
 
    // TEST CODE
    let level = 2;
