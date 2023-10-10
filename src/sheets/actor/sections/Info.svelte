@@ -4,8 +4,9 @@
    import { resize_to_value } from '/core/html';
 
    export let sheet;
+   export let update;
    let actor = sheet.actor;
-   let data = sheet.actor.system;
+   let system = sheet.actor.system;
    let canvas = document.createElement("canvas");
 
    $: inputs = {
@@ -41,16 +42,20 @@
    <img src="{actor.img}" id="portrait" alt="{sheet.actor.name}'s portrait"/>
    <div id="info">
       <div class="info_line">
-         <input type="text" id="name" placeholder="Name" value={actor.name} 
+         <input type="text" id="name" placeholder="Name" 
+            name="name" value={actor.name} on:change={update}
             bind:this={inputs.name} on:input={resize}/>
          <span>, Level</span>
-         <input type="text" id="level" value={data.level} 
+         <input type="text" id="level" 
+            name="system.level" value={system.level} on:change={update}
             bind:this={inputs.level} on:input={resize}/>
          <input type="text" id="race" placeholder="Race" 
+            name="system.race" value={system.race} on:change={update}
             bind:this={inputs.race} on:input={resize}/>
          <input type="text" id="gender" placeholder="Gender" 
             bind:this={inputs.gender} on:input={resize}/>
          <input type="text" id="class" placeholder="Class" 
+            name="system.class" value={system.class} on:change={update}
             bind:this={inputs.class} on:input={resize}/>
          <input type="text" id="paragon" class="optional" placeholder="Paragon Path" 
             bind:this={inputs.paragon} on:input={resize}/>
@@ -62,7 +67,7 @@
          <input type="text" id="experience" placeholder="Exp"/>
       </div>
       <div class="block_line">
-         <HP data={data}/>
+         <HP system={system}/>
       </div>
    </div>
 </section>

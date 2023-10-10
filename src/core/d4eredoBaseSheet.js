@@ -54,10 +54,4 @@ export default class d4eredoBaseSheet extends SvelteApplication {
          },
       });
    }
-
-   update(event) {
-      console.log("DEBUG: Update!");
-      console.log(event);
-      console.log(event.srcElement.value);
-   }
 }
