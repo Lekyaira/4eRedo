@@ -1,25 +1,25 @@
 <script>
-   export let data;
+   export let system;
 
-   console.log(data);
+   console.log(system);
 </script>
 
 <section>
    <h2>Hit Points</h2>
    <div id="hp">
-      <input type="text" id="hp_value" value="{data.hp.value}"/>
+      <input type="text" id="hp_value" value="{system.hp.value}"/>
       <div id="hp_info">
          <div class="row">
             <div id="hp_info_max" class="item">
-               <input type="text" value="{data.hp.max}"/>
+               <input type="text" value="{system.hp.max}"/>
                <span>max</span>
             </div>
             <div id="hp_info_temp" class="item">
-               <input type="text" value="{data.hp.temp}"/>
+               <input type="text" value="{system.hp.temp}"/>
                <span>temp</span>
             </div>
             <div id="second_wind" class="item">
-               <input type="checkbox" value="{data.healing_surges.second_wind}"/>
+               <input type="checkbox" value="{system.healing_surges.second_wind}"/>
                <span>SW</span>
             </div>
          </div>
@@ -30,11 +30,11 @@
                <span>heals for</span>
             </div>
             <div id="hp_info_surges_surges" class="item">
-               <input type="text" value="{data.healing_surges.value}"/>
+               <input type="text" value="{system.healing_surges.value}"/>
                <span>surges</span>
             </div>
             <div id="hp_info_surges_max" class="item">
-               <input type="text" value="{data.healing_surges.max}"/>
+               <input type="text" value="{system.healing_surges.max}"/>
                <span>per day</span>
             </div>
          </div>

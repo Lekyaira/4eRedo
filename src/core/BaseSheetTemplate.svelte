@@ -5,6 +5,8 @@
    export let sheet;
    // Inner sheet template component
    export let component = false;
+   // Update function
+   export let update;
 
    export let elementRoot;
 </script>
@@ -23,5 +25,6 @@
       bind:sheet={sheet} />-->
    <svelte:component this={component} 
       bind:sheet={sheet} 
+      bind:update={update}
    />
 </ApplicationShell>
