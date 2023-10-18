@@ -1,13 +1,13 @@
 import d4eredoBaseSheet from '../../core/d4eredoBaseSheet';
-import ItemSheetTemplate from './ItemSheetTemplate.svelte';
+import FeatSheetTemplate from './FeatSheetTemplate.svelte';
 
-export default class d4eredoItemSheet extends d4eredoBaseSheet {
-   get item() {
+export default class d4eredoFeatSheet extends d4eredoBaseSheet {
+   get feat() {
       return this.object;
    }
 
    constructor(object = {}, options = {}) {
-      super(object, options, ItemSheetTemplate);
+      super(object, options, FeatSheetTemplate);
    }
 
    /**
@@ -19,7 +19,7 @@ export default class d4eredoItemSheet extends d4eredoBaseSheet {
    static get defaultOptions()
    {
       return foundry.utils.mergeObject(super.defaultOptions, {
-         baseApplication: 'd4eredoItemSheet',
+         baseApplication: 'd4eredoFeatSheet',
          width: 300,
          height: 200,
       });

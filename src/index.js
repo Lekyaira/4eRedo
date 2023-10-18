@@ -1,7 +1,7 @@
 import d4eredoActor from './d4eredoActor.js';
 import d4eredoActorSheet from './sheets/actor/d4eredoActorSheet.js';
 import d4eredoItem from './d4eredoItem.js';
-import d4eredoItemSheet from './sheets/item/d4eredoItemSheet.js';
+import d4eredoFeatSheet from './sheets/feat/d4eredoFeatSheet.js';
 
 Hooks.once("init", async () => {
    console.log("4eRedo | Initializing system...");
@@ -36,7 +36,7 @@ Hooks.once("init", async () => {
    
    // Items
    const itemTypes = [
-      ["item", d4eredoItemSheet],
+      ["feat", d4eredoFeatSheet],
    ];
    itemTypes.forEach((type) => {
       Items.registerSheet("d4eredo", type[1], {
