@@ -1,10 +1,12 @@
 <script>
    export let name;
    export let value;
+
+   $: val = value;
 </script>
 
 <section>
-   <div id="defense-value">{value}</div>
+   <div id="defense-value">{val}</div>
    <div id="defense-name">{name}</div>
 </section>
 

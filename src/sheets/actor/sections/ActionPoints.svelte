@@ -1,6 +1,5 @@
 <script>
-   export let system;
-   export let update;
+   export let data;
 </script>
 
 <section>

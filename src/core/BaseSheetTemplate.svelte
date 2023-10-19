@@ -8,30 +8,37 @@
 
    export let elementRoot;
 
-   // Update Foundry database
-   let update = (event) => {
-      let attributeValue = event.srcElement.value;
-      let attributeName = event.srcElement.name;
-      let docData = { _id: sheet.actor._id };
-      if(event.srcElement.type === 'checkbox') attributeValue = event.srcElement.checked;
-      docData[attributeName] = attributeValue;
-      sheet.actor.update(docData);
-   };
-
-   // Update sheet image
-   let editImage = () => {
-      // TODO: Replace with our own Tokenizer-like functionality.
-      // Instantiate a new file picker.
-      const picker = new FilePicker();
-      // When the file is picked...
-      picker.callback = async (imgPath) => {
-         // Update the sheet's image
-         sheet.actor.img = imgPath;
-         // Update the returned data object with the newly picked image
-         sheet.actor.update({ _id: sheet.actor._id, img: imgPath });
-      };
-      // Render the picker
-      picker.render(true);
+   let data = {
+      sheet: sheet,
+      update: (event) => {
+         let attributeValue = event.srcElement.value;
+         let attributeName = event.srcElement.name;
+         let docData = { _id: sheet.actor._id };
+         if(event.srcElement.type === 'checkbox') attributeValue = event.srcElement.checked;
+         docData[attributeName] = attributeValue;
+         let result = sheet.actor.update(docData);
+         result.then(() => {
+            data.onUpdate.forEach(event => {
+               event(result);
+            });
+         });
+         return result;
+      },
+      onUpdate: [],
+      editImage: () => {
+         // TODO: Replace with our own Tokenizer-like functionality.
+         // Instantiate a new file picker.
+         const picker = new FilePicker();
+         // When the file is picked...
+         picker.callback = async (imgPath) => {
+            // Update the sheet's image
+            sheet.actor.img = imgPath;
+            // Update the returned data object with the newly picked image
+            sheet.actor.update({ _id: sheet.actor._id, img: imgPath });
+         };
+         // Render the picker
+         picker.render(true);
+      }
    }
 </script>
 
@@ -48,8 +55,5 @@
       this={component},
       bind:sheet={sheet} />-->
    <svelte:component this={component} 
-      bind:sheet={sheet} 
-      update={update}
-      editImage={editImage}
-   />
+      data={data}/>
 </ApplicationShell>

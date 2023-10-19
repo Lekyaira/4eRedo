@@ -1,8 +1,7 @@
 <script>
-   export let system;
-   export let update;
-
-   console.log(system);
+   export let data;
+   let system = data.sheet.actor.system;
+   let update = data.update;
 </script>
 
 <section>

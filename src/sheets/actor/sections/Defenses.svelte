@@ -1,15 +1,9 @@
 <script>
    import Defense from './Defense.svelte';
 
-   export let system;
-   export let update;
-
-   let defenses = {
-      ac: 10,
-      fortitude: 10,
-      reflexes: 10,
-      will: 10,
-   }
+   export let data;
+   let defenses = data.sheet.actor.derived.defenses;
+   data.onUpdate.push(() => defenses=defenses);
 </script>
 
 <section>

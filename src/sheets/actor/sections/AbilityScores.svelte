@@ -1,27 +1,48 @@
 <script>
    import AbilityScore from "./AbilityScore.svelte";
-   export let system;
+   export let data;
+   let update = data.update;
 
-   // TEST CODE
-   let level = 2;
-   let str = 18;
-   let strMod = Math.floor((str-10)/2);
-   let strModPlusHalflevel = Math.floor(strMod+(level/2));
-   let dex = 10;
-   let dexMod = Math.floor((dex-10)/2);
-   let dexModPlusHalflevel = Math.floor(dexMod+(level/2));
-   let con = 10;
-   let conMod = Math.floor((con-10)/2);
-   let conModPlusHalflevel = Math.floor(conMod+(level/2));
-   let int = 6;
-   let intMod = Math.floor((int-10)/2);
-   let intModPlusHalflevel = Math.floor(intMod+(level/2));
-   let wis = 10;
-   let wisMod = Math.floor((wis-10)/2);
-   let wisModPlusHalflevel = Math.floor(wisMod+(level/2));
-   let cha = 10;
-   let chaMod = Math.floor((cha-10)/2);
-   let chaModPlusHalflevel = Math.floor(chaMod+(level/2));
+   let strength = {
+      name: "strength",
+      score: data.sheet.actor.system.ability_scores.strength.base,
+      derived: data.sheet.actor.derived.abilities.strengthMod,
+   };
+   let dexterity = {
+      name: "dexterity",
+      score: data.sheet.actor.system.ability_scores.dexterity.base,
+      derived: data.sheet.actor.derived.abilities.dexterityMod,
+   };
+   let constitution = {
+      name: "constitution",
+      score: data.sheet.actor.system.ability_scores.constitution.base,
+      derived: data.sheet.actor.derived.abilities.constitutionMod,
+   };
+   let intelligence = {
+      name: "intelligence",
+      score: data.sheet.actor.system.ability_scores.intelligence.base,
+      derived: data.sheet.actor.derived.abilities.intelligenceMod,
+   };
+   let wisdom = {
+      name: "wisdom",
+      score: data.sheet.actor.system.ability_scores.wisdom.base,
+      derived: data.sheet.actor.derived.abilities.wisdomMod,
+   };
+   let charisma = {
+      name: "charisma",
+      score: data.sheet.actor.system.ability_scores.charisma.base,
+      derived: data.sheet.actor.derived.abilities.charismaMod,
+   };
+
+   data.onUpdate.push(() => {
+      // No idea why this works but data=data doesn't.
+      strength.derived=data.sheet.actor.derived.abilities.strengthMod;
+      dexterity.derived=data.sheet.actor.derived.abilities.dexterityMod;
+      constitution.derived=data.sheet.actor.derived.abilities.constitutionMod;
+      intelligence.derived=data.sheet.actor.derived.abilities.intelligenceMod;
+      wisdom.derived=data.sheet.actor.derived.abilities.wisdomMod;
+      charisma.derived=data.sheet.actor.derived.abilities.charismaMod;
+   });
 </script>
 
 <section>
@@ -29,12 +50,30 @@
       <div class="label box_label left_box">Mod</div>
       <div class="label box_label">+1/2 LVL</div>
    </section>
-   <AbilityScore score={str} scoreName={"Strength"} scoreModifier={strMod} scoreModPlusHalflevel={strModPlusHalflevel}/>
-   <AbilityScore score={dex} scoreName={"Dexterity"} scoreModifier={dexMod} scoreModPlusHalflevel={dexModPlusHalflevel}/>
-   <AbilityScore score={con} scoreName={"Constitution"} scoreModifier={conMod} scoreModPlusHalflevel={conModPlusHalflevel}/>
-   <AbilityScore score={int} scoreName={"Intelligence"} scoreModifier={intMod} scoreModPlusHalflevel={intModPlusHalflevel}/>
-   <AbilityScore score={wis} scoreName={"Wisdom"} scoreModifier={wisMod} scoreModPlusHalflevel={wisModPlusHalflevel}/>
-   <AbilityScore score={cha} scoreName={"Charisma"} scoreModifier={chaMod} scoreModPlusHalflevel={chaModPlusHalflevel}/>
+   <AbilityScore 
+      scoreName={"Strength"}
+      data={strength}
+      update={update}/>
+   <AbilityScore 
+      scoreName={"Dexterity"}
+      data={dexterity}
+		update={update}/>
+   <AbilityScore 
+      scoreName={"Constitution"}
+      data={constitution}
+		update={update}/>
+   <AbilityScore 
+      scoreName={"Intelligence"}
+      data={intelligence}
+		update={update}/>
+   <AbilityScore 
+      scoreName={"Wisdom"}
+      data={wisdom}
+		update={update}/>
+   <AbilityScore 
+      scoreName={"Charisma"}
+      data={charisma}
+		update={update}/>
 </section>
 
 <style lang="scss">

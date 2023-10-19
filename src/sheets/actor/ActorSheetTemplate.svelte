@@ -2,20 +2,17 @@
    import Info from "./sections/Info.svelte";
    import AbilityScores from "./sections/AbilityScores.svelte";
    import Skills from "./sections/Skills.svelte";
-   // Sheet passed in from the base sheet.
-   export let sheet;
-   let system = sheet.actor.system;
-   export let update;
-   export let editImage;
+   // Data passed in from the base sheet.
+   export let data;
 
    // Edit actor portrait
    function editPortrait() {
       // Import Tokenize function
       const tokenize = game.modules.get('vtta-tokenizer')?.api?.tokenizeActor;
       // If we have Tokenizer installed, use it
-      if(tokenize) tokenize(sheet.actor); // TODO: Update sheet img on tokenizer submit
+      if(tokenize) tokenize(data.sheet.actor); // TODO: Update sheet img on tokenizer submit
       // Otherwise, call our own file dialog
-      else editImage();
+      else data.editImage();
    }
 </script>
 
@@ -25,17 +22,15 @@
 <main>
    <section id="header">
       <Info 
-         system={system} 
-         update={update} 
-         name={sheet.actor.name} 
-         img={sheet.actor.img}
+         data={data}
          editPortrait={editPortrait}/>
    </section>
    <section id="body">
       <section id="left_panel">
-         <Skills system={system} update={update}/>
+         <Skills data={data}/>
       </section>
       <section id="tab_panel">
+         <AbilityScores data={data}/>
       </section>
    </section>
 </main>

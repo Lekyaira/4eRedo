@@ -5,12 +5,14 @@
    import ActionPoints from './ActionPoints.svelte';
    import { resize_to_value } from '/core/html';
 
-   export let system;
-   export let update;
-   export let name;
-   export let img;
+   export let data;
    export let editPortrait;
+   let name = data.sheet.actor.name;
+   let img = data.sheet.actor.img;
+   let system = data.sheet.actor.system;
+   let update = data.update;
    let canvas = document.createElement("canvas");
+   console.log(data);
 
    $: inputs = {
       name: {},
@@ -71,11 +73,11 @@
             name="system.xp" value={system.xp} on:change={update}/>
       </div>
       <div class="block_line">
-         <HP system={system} update={update}/>
+         <HP data={data}/>
          <div class="divider"/>
-         <Defenses system={system} update={update}/>
+         <Defenses data={data}/>
          <div class="divider"/>
-         <ActionPoints system={system} update={update}/>
+         <ActionPoints data={data}/>
       </div>
    </div>
 </section>

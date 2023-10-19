@@ -1,17 +1,21 @@
 <script>
    import { print_mod } from "/core/html";
 
-   export let score;
    export let scoreName;
-   export let scoreModifier;
-   export let scoreModPlusHalflevel;
+   export let data;
+   export let update;
+
+   $: scoreModifier = Math.floor((data.score-10)/2);
 </script>
 
 <section>
-   <input type="text" id="score_value" class="score_box" value={score}/>
+   <input type="text" id="score_value" class="score_box" 
+      bind:value={data.score}
+      name="system.ability_scores.{scoreName.toLowerCase()}.base"
+      on:change={update}/>
    <div id="score_name" >{scoreName}</div>
    <div id="score_modifier" class="score_box">{print_mod(scoreModifier)}</div>
-   <div id="score_mod_plus_halflevel" class="score_box">{print_mod(scoreModPlusHalflevel)}</div>
+   <div id="score_mod_plus_halflevel" class="score_box">{print_mod(data.derived)}</div>
 </section>
 
 <style lang="scss">
