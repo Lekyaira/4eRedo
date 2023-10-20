@@ -1,8 +1,11 @@
 <script>
    import Info from "./sections/Info.svelte";
-   import AbilityScores from "./sections/AbilityScores.svelte";
+   import Rest from "./sections/Rest.svelte";
    import Skills from "./sections/Skills.svelte";
    import ActionPoints from "./sections/ActionPoints.svelte";
+   import Senses from "./sections/Senses.svelte";
+   import Speed from "./sections/Speed.svelte";
+   import Tabs from "./sections/Tabs.svelte";
 
    // Data passed in from the base sheet.
    export let data;
@@ -29,12 +32,16 @@
    </section>
    <section id="sub-header">
       <ActionPoints data={data}/>
+      <Speed data={data}/>
+      <Senses data={data}/>
    </section>
    <section id="body">
       <section id="left_panel">
+         <Rest data={data}/>
          <Skills data={data}/>
       </section>
       <section id="tab_panel">
+         <Tabs data={data}/>
       </section>
    </section>
 </main>
@@ -45,12 +52,9 @@
       flex-direction: column;
    }
 
-   #header {
-   }
-
    #body {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
    }
 
    #left_panel {

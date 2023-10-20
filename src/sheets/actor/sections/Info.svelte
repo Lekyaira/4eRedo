@@ -2,7 +2,7 @@
    import { onMount } from 'svelte';
    import HP from './HP.svelte';
    import Defenses from './Defenses.svelte';
-   import ActionPoints from './ActionPoints.svelte';
+   import Saves from "./Saves.svelte";
    import { resize_to_value } from '/core/html';
 
    export let data;
@@ -75,6 +75,8 @@
          <HP data={data}/>
          <div class="divider"/>
          <Defenses data={data}/>
+         <div class="divider"/>
+         <Saves data={data}/>
       </div>
    </div>
 </section>
