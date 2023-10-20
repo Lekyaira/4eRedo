@@ -1,7 +1,20 @@
 <script>
+   import { onMount } from "svelte";
+   import { resize_to_value } from "/core/html";
+
    export let data;
    let speed = data.sheet.actor.system.speed.base;
    let special = data.sheet.actor.system.speed.special;
+   let canvas = document.createElement("canvas");
+   $: specialText = {};
+
+   function resize(event) {
+      resize_to_value(canvas, event.srcElement);
+   }
+
+   onMount(() => {
+      resize_to_value(canvas, specialText);
+   })
 </script>
 
 <section>
@@ -13,7 +26,9 @@
    <input type="text" id="special" placeholder="Special Movement"
       name="system.speed.special"
       value={special}
-      on:change={data.update}/>
+      on:change={data.update}
+      bind:this={specialText}
+      on:input={resize}/>
 </section>
 
 <style lang="scss">
@@ -49,12 +64,8 @@
    }
 
    #special {
-      flex: 0 0 8.5rem;
-      width: 8.5rem;
+      flex: 0 0 7rem;
+      width: 7rem;
       font-size: 0.8rem;
-   }
-
-   #special::placeholder {
-      font-size: 1rem;
    }
 </style>
