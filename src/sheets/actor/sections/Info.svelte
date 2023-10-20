@@ -50,12 +50,12 @@
          <input type="text" id="level" 
             name="system.level" value={system.level} on:change={update}
             bind:this={inputs.level} on:input={resize}/>
-         <input type="text" id="race" placeholder="Race" 
-            name="system.race" value={system.race} on:change={update}
-            bind:this={inputs.race} on:input={resize}/>
          <input type="text" id="gender" placeholder="Gender" 
             name="system.gender" value={system.gender} on:change={update}
             bind:this={inputs.gender} on:input={resize}/>
+         <input type="text" id="race" placeholder="Race" 
+            name="system.race" value={system.race} on:change={update}
+            bind:this={inputs.race} on:input={resize}/>
          <input type="text" id="class" placeholder="Class" 
             name="system.class" value={system.class} on:change={update}
             bind:this={inputs.class} on:input={resize}/>

@@ -19,6 +19,8 @@
       // Otherwise, call our own file dialog
       else data.editImage();
    }
+
+   console.log("d4eRedo | DEBUG", data.sheet);
 </script>
 
 <!-- This is necessary for Svelte to generate accessors TRL can access for `elementRoot` -->
@@ -32,7 +34,9 @@
    </section>
    <section id="sub-header">
       <ActionPoints data={data}/>
+      <span class="vertical-divider"/>
       <Speed data={data}/>
+      <span class="vertical-divider"/>
       <Senses data={data}/>
    </section>
    <section id="body">
@@ -50,6 +54,14 @@
    main {
       display: flex;
       flex-direction: column;
+   }
+
+   .vertical-divider {
+      border-right: 1px solid black;
+      flex: 0 0 0.5rem;
+      width: 0.5rem;
+      height: 80%;
+      margin: 0 0.5rem 0 0;
    }
 
    #body {
