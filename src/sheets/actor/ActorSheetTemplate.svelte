@@ -2,6 +2,8 @@
    import Info from "./sections/Info.svelte";
    import AbilityScores from "./sections/AbilityScores.svelte";
    import Skills from "./sections/Skills.svelte";
+   import ActionPoints from "./sections/ActionPoints.svelte";
+
    // Data passed in from the base sheet.
    export let data;
 
@@ -25,12 +27,14 @@
          data={data}
          editPortrait={editPortrait}/>
    </section>
+   <section id="sub-header">
+      <ActionPoints data={data}/>
+   </section>
    <section id="body">
       <section id="left_panel">
          <Skills data={data}/>
       </section>
       <section id="tab_panel">
-         <AbilityScores data={data}/>
       </section>
    </section>
 </main>
@@ -42,7 +46,6 @@
    }
 
    #header {
-      margin-bottom: 0.4rem;
    }
 
    #body {
@@ -54,5 +57,14 @@
       flex: 0 0 auto;
       width: 13rem;
       border-right: 3px solid black;
+   }
+
+   #sub-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-bottom: 1px solid black;
+      margin: 0 0 0.4rem 0;
+      padding: 0 0 0 1rem;
    }
 </style>

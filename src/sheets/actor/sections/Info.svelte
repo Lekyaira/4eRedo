@@ -12,7 +12,6 @@
    let system = data.sheet.actor.system;
    let update = data.update;
    let canvas = document.createElement("canvas");
-   console.log(data);
 
    $: inputs = {
       name: {},
@@ -76,8 +75,6 @@
          <HP data={data}/>
          <div class="divider"/>
          <Defenses data={data}/>
-         <div class="divider"/>
-         <ActionPoints data={data}/>
       </div>
    </div>
 </section>

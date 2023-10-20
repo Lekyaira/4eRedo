@@ -43,7 +43,6 @@ export default class d4eredoActor extends Actor {
 
       // PCs
       if (this.type === "character") {
-         console.log("d4eRedo | DEBUG: Preparing character data..");
          const halfLevel = Math.floor(system.level / 2);
          // Ability scores
          derived.abilities.strengthMod = 
@@ -142,6 +141,5 @@ export default class d4eredoActor extends Actor {
       }
 
       this.derived = derived;
-      console.log(this);
    }
 }

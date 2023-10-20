@@ -10,12 +10,17 @@
 
    let data = {
       sheet: sheet,
-      update: (event) => {
+      update: (event, ...args) => {
          let attributeValue = event.srcElement.value;
          let attributeName = event.srcElement.name;
          let docData = { _id: sheet.actor._id };
-         if(event.srcElement.type === 'checkbox') attributeValue = event.srcElement.checked;
+         if (event.srcElement.type === 'checkbox') 
+            attributeValue = event.srcElement.checked;
          docData[attributeName] = attributeValue;
+         // Add optional extra attributes
+         args.forEach((argument) => {
+            docData[argument.name] = argument.value;
+         });
          let result = sheet.actor.update(docData);
          result.then(() => {
             data.onUpdate.forEach(event => {
