@@ -23,6 +23,7 @@
       name="system.speed.base"
       value={speed}
       on:change={data.update}/>
+   <!-- TODO: Consider making this a textarea for multiline entries-->
    <input type="text" id="special" placeholder="Special Movement"
       name="system.speed.special"
       value={special}
@@ -66,6 +67,9 @@
    #special {
       flex: 0 0 7rem;
       width: 7rem;
+      max-width: 7rem;
+      max-height: 2rem;
+      min-height: 1rem;
       font-size: 0.8rem;
    }
 </style>
